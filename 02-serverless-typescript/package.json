@@ -1,0 +1,17 @@
+{
+  "name": "02-serverless-typescript",
+  "version": "1.0.0",
+  "description": "sample typescript serverless",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sujan",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.83",
+    "node": "^16.10.0",
+    "serverless-plugin-typescript": "^2.1.0",
+    "typescript": "^4.4.3"
+  }
+}

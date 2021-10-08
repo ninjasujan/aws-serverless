@@ -15,9 +15,9 @@ provider:
 
 functions:
   addToDo:
-    handler: src/addTodo.handler
+    handler: src/addTodo.handler # function entry point
     events:
-      - http:
+      - http: # Rest api end point
           path: /todos
           method: post
 
@@ -44,7 +44,7 @@ functions:
 
 resources:
   Resources:
-    TodoTable:
+    TodoTable: # resource dynamodb configuration
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: TodoTable
