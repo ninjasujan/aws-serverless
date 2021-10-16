@@ -29,7 +29,7 @@
 ### Creating serverless function using Nodejs(Typescript)
 
 1. Initiate serverless project with starter template
-2. Install typescript, node and serverless-plugin-typescript as dev dependecies in your project
+2. Install `typescript`, `node` and `serverless-plugin-typescript` as dev dependecies in your project
 3. Add `serverless-plugin-typescript` plugin in the plugins section on the yaml file
 4. Organize your folder structure according to you need.
 5. Install `@types/aws-lambda` dev dependencies to work with types in your code. refer code block in the repo to see more

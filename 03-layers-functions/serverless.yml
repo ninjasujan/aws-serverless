@@ -1,0 +1,44 @@
+service: layers-functions
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: "20201221"
+  region: "us-east-1"
+
+# package:
+#   individually: true
+#   exclude:
+#     - layers/**
+#     - node_modules/**
+
+# layers:
+#   dependencies:
+#     path: layers # required, path to layer contents on disk
+#     name: dependencies
+#     description: layer holding lambda function dependencies # optional, Description to publish to AWS
+#     compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
+#       - nodejs12.x
+#       - nodejs14.x
+# package:
+#   patterns:
+#     - "!./**"
+#     - "layers/**"
+
+functions:
+  getuuid:
+    handler: src/index.getuuid
+    # package:
+    #   patterns:
+    #     - "!./**"
+    #     - "./src/**"
+
+    # layers:
+    #   - { Ref: dependenciesLayer }
+    events:
+      - http:
+          path: /uuid
+          method: get
+plugins:
+  - serverless-plugin-typescript
