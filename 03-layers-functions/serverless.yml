@@ -1,3 +1,5 @@
+org: ninjasujan
+app: layers-functions
 service: layers-functions
 frameworkVersion: "2"
 

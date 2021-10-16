@@ -1,0 +1,42 @@
+org: ninjasujan
+app: layers-functions
+service: lambda-layer
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: "20201221"
+  region: "us-east-1"
+
+package:
+  individually: true
+
+layers:
+  dependecy:
+    path: layer
+    package:
+      exclude:
+        - src/**
+      include:
+        - layer/**
+
+    compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
+      - nodejs12.x
+      - nodejs14.x
+    description: optional description for your layer
+
+functions:
+  hello:
+    handler: handler.getuuid
+    layers:
+      - { Ref: DependecyLambdaLayer }
+    package:
+      exclude:
+        - layer/**
+      include:
+        - src/**
+    events:
+      - http:
+          path: /
+          method: get
