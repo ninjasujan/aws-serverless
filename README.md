@@ -36,3 +36,37 @@
 6. Then normal deployment and invocation of the api end point, typescript plugin will handle all the conversion related to javascript to typescript.
 
 ---
+
+### Adding layers in serverless.
+
+**Serverless layer helps to easily share code and dependencies among the multiple lambda functions, so we can generate very lean code artifact. we can include upto 5 layers in the lambda functions, see example `04-lambda-layer-js` folder to know more about the layers**
+
+1. creating layer
+2. folder structure
+3. how to test layer locally using env variables
+
+---
+
+### Adding environment variable in lambda functions
+
+**using `serverless-dotenv-plugin` we can add environment variable easily in serverless functions, add this package as a dependecy in serverless plugins.
+package automatically detects the variables .env file and load them into the serverless functions we can access those variable as `${env:ENV_NAME}` in yaml file**
+
+---
+
+### Add multiple api end point under single api gateway
+
+1. Create an API gateway manually in the console.
+2. copy `restApiId` and `restApiRootResourceId`
+3. Configure api gateway in `serverless.yaml` file
+
+   ```yaml
+   apiGateway:
+     restApiId: aabdcyfq1f
+     restApiRootResourceId: v3q8b97do8
+   ```
+
+4. Then adding all those events under functions will create and api under the given gateway ID
+5. See example to know more (04-lambda-layer-js)
+
+---

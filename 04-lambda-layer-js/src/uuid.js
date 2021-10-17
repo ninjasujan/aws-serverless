@@ -1,7 +1,7 @@
 "use strict";
 
 const { v4 } =
-	process.env.STAGE === "dev"
+	process.env.STAGE === "test"
 		? require("../layer/nodejs/node_modules/uuid")
 		: require("uuid");
 

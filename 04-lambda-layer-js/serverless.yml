@@ -8,7 +8,10 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: "20201221"
   region: "us-east-1"
-  stage: ${env:STAGE}
+  stage: ${env:DEPLOY_STAGE}
+  apiGateway:
+    restApiId: aabdcyfq1f
+    restApiRootResourceId: v3q8b97do8
 
 package:
   individually: true
@@ -30,18 +33,38 @@ layers:
       layer: testLayer
 
 functions:
-  hello:
-    handler: src/handler.getuuid
+  uuid:
+    handler: src/uuid.getuuid
     layers:
       - { Ref: DependecyLambdaLayer }
     package:
       exclude:
         - layer/**
+        - src/nanoid.js
       include:
-        - src/**
+        - src/uuid.js
     events:
       - http:
-          path: /
+          path: /uuid
+          method: get
+    environment:
+      STAGE: ${env:STAGE}
+    tags:
+      function: testFunction
+
+  nanoid:
+    handler: src/nanoid.getNanoId
+    layers:
+      - { Ref: DependecyLambdaLayer }
+    package:
+      exclude:
+        - layer/**
+        - src/uuid.js
+      include:
+        - src/nanoid.js
+    events:
+      - http:
+          path: /nanoid
           method: get
     environment:
       STAGE: ${env:STAGE}

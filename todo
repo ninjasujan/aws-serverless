@@ -4,9 +4,11 @@ custom handler function import // done
 adding stage in deploy //done
 local testing - layer // done* - scope to explore
 using env - // done* scope to explore
-add multiple lambda function under one api gateway
-organise layer for large project
+add multiple lambda function under one api gateway // done*
+how to deploy only changed resource and type // done
+organise layer for large project // 
 one lambda execution role 
+
 
 
 /** issues **/
