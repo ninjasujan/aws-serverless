@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"dependencies": {},
 	"devDependencies": {
+		"serverless-dotenv-plugin": "^3.10.0",
 		"serverless-offline": "^8.2.0",
 		"util": "file:./layer/nodejs/util.js",
 		"uuid": "file:./layer/nodejs/node_modules/uuid"

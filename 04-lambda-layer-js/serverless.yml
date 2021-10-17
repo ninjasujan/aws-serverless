@@ -8,7 +8,7 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: "20201221"
   region: "us-east-1"
-  stage: prod
+  stage: ${env:STAGE}
 
 package:
   individually: true
@@ -26,6 +26,8 @@ layers:
       - nodejs14.x
     retain: false
     description: optional description for your layer
+    tags:
+      layer: testLayer
 
 functions:
   hello:
@@ -42,7 +44,10 @@ functions:
           path: /
           method: get
     environment:
-      STAGE: dev
+      STAGE: ${env:STAGE}
+    tags:
+      function: testFunction
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline

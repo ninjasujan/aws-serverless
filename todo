@@ -2,10 +2,14 @@
 delete old version layer // done
 custom handler function import // done
 adding stage in deploy //done
+local testing - layer // done* - scope to explore
+using env - // done* scope to explore
 add multiple lambda function under one api gateway
-local testing - layer 
 organise layer for large project
-using env - 
-one lambda execution role
+one lambda execution role 
+
+
+/** issues **/
+1. custom resource in deploy functions
 
 
