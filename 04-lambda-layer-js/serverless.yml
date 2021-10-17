@@ -8,6 +8,7 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: "20201221"
   region: "us-east-1"
+  stage: prod
 
 package:
   individually: true
@@ -20,15 +21,15 @@ layers:
         - src/**
       include:
         - layer/**
-
     compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
       - nodejs12.x
       - nodejs14.x
+    retain: false
     description: optional description for your layer
 
 functions:
   hello:
-    handler: handler.getuuid
+    handler: src/handler.getuuid
     layers:
       - { Ref: DependecyLambdaLayer }
     package:
@@ -40,3 +41,8 @@ functions:
       - http:
           path: /
           method: get
+    environment:
+      STAGE: dev
+
+plugins:
+  - serverless-offline
