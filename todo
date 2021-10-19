@@ -1,17 +1,20 @@
-
 delete old version layer // done
 custom handler function import // done
 adding stage in deploy //done
+how to deploy only changed resource and type // done
+add multiple lambda function under one api gateway // done
+
 local testing - layer // done* - scope to explore
 using env - // done* scope to explore
-add multiple lambda function under one api gateway // done*
-how to deploy only changed resource and type // done
-organise layer for large project // 
-one lambda execution role 
 
-
+organise layer for large project // need to improve
+lambda versioning // doing
+one lambda execution role
+lambda dev and prod stage using versioning //
+createing lambda from command
+one bucket for multiple service deployment
+getting resource arn and id dynamically - self
 
 /** issues **/
+
 1. custom resource in deploy functions
-
-

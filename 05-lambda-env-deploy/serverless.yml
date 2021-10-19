@@ -1,0 +1,22 @@
+service: lambda-deploy-env
+
+custom:
+  stage: ${opt:stage, 'dev'}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: "20201221"
+  region: "us-east-1"
+  stage: ${self:custom.stage}
+  apiGateway:
+    restApiId: 3r9ynesnug
+    restApiRootResourceId: kj10k3svr7
+
+functions:
+  hello:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /
+          method: get

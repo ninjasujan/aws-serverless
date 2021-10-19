@@ -70,3 +70,24 @@ package automatically detects the variables .env file and load them into the ser
 5. See example to know more (04-lambda-layer-js)
 
 ---
+
+### Manintaining separate environment for dev and prod
+
+If we want to create separate environment for dev and prod use the different stage in `serverless.yaml` file, it will create separate lambda function, API gateway and also the cloud formation stack.
+
+But creating multiple stack for dev and prod is not great solution to isolate work environment and also difficult to manage the severless resources in separate stack.
+
+**Note: Please refer `05-lambda-env-deploy` to know more about the separate deployment and also to know about the serverless variable.**
+
+```yaml
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: "20201221"
+  region: "us-east-1"
+  stage: ${self:custom.stage}
+```
+
+**variables:**
+self: To refer variable value in `serverless.yaml` file manifest
+opt: To refer the variable pass through the CLI.
